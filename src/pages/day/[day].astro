@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SelectCard from '../../components/SelectCard.astro';
+export function getStaticPaths() {
+  return [
+    {params: {day: 'senin'}},
+    {params: {day: 'selasa'}},
+    {params: {day: 'rabu'}},
+  ];
+}
+
+const { day } = Astro.params;
+
+const dayData = [
+    ["LKJ1","LKJ2"],
+    ["RPL1","RPL2"],
+];
+
+let showDays =[""];
+
+
+if(day=="senin"){
+    showDays=dayData[0]
+}
+if(day=="selasa"){
+  showDays=dayData[1]
+}
+
+
+---
+
+<Layout title="JTI Kelas Kosong">
+
+<main class="h-screen bg-orange flex flex-col  items-center text-center epilogue py-10">
+	<h1 class="font-extrabold text-4xl">Kelas Kosong JTI</h1>
+	<h2 class="text-2xl">Cari Kelas Kosong Mu !</h2>
+	<SelectCard></SelectCard>
+    <div class="">
+        {showDays.map((el)=>(
+            <p>{el}</p>
+        ))}
+    </div>
+</main>
+
+</Layout>
