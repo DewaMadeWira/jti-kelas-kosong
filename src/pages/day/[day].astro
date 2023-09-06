@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SelectCard from '../../components/SelectCard.astro';
+import Card from '../../components/Card.astro';
 export function getStaticPaths() {
   return [
     {params: {day: 'senin'}},
@@ -11,12 +12,39 @@ export function getStaticPaths() {
 
 const { day } = Astro.params;
 
+// const dayData = [
+//     ["LKJ1","LKJ2"],
+//     ["RPL1","RPL2"],
+// ];
 const dayData = [
-    ["LKJ1","LKJ2"],
-    ["RPL1","RPL2"],
+    [
+      {
+        room:"RT01",
+        floor:"5",
+        hour:"6-7"
+      },
+      
+    ],
+    [
+      {
+        room:"RT01",
+        floor:"5",
+        hour:"5-7"
+      },
+      {
+        room:"RT07",
+        floor:"5",
+        hour:"5-7"
+      },
+      {
+        room:"RT09",
+        floor:"8",
+        hour:"5-6"
+      },
+    ],
 ];
 
-let showDays =[""];
+let showDays =[];
 
 
 if(day=="senin"){
@@ -31,13 +59,17 @@ if(day=="selasa"){
 
 <Layout title="JTI Kelas Kosong">
 
-<main class="h-screen bg-orange flex flex-col  items-center text-center epilogue py-10">
-	<h1 class="font-extrabold text-4xl">Kelas Kosong JTI</h1>
-	<h2 class="text-2xl">Cari Kelas Kosong Mu !</h2>
+<main class="min-h-screen bg-orange flex flex-col  items-center text-center epilogue py-10">
+	<h1  data-aos="fade-up"
+		data-aos-delay="300"
+      class="font-extrabold text-4xl">Kelas Kosong JTI</h1>
+		<h2 data-aos="fade-up"
+		data-aos-delay="350"
+      class="text-2xl">Cari Kelas Kosong Mu !</h2>
 	<SelectCard></SelectCard>
-    <div class="">
+    <div class="w-full flex flex-col items-center">
         {showDays.map((el)=>(
-            <p>{el}</p>
+            <Card room={el.room} floor={el.floor} hour={el.hour}></Card>
         ))}
     </div>
 </main>

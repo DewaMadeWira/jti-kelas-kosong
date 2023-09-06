@@ -2,11 +2,18 @@
 
 
 
-<div class="border-2 border-black rounded-2xl w-[80%] p-4 flex flex-col justify-between h-32 mt-10">
-        <select class="text-3xl bg-orange  font-bold" name="day" id="">
-            <option class="text-xl" value="senin">Senin</option>
-            <option class="text-xl"  value="SelasaRabu">Selasa</option>
-            <option class="text-xl" value="Rabu">Rabu</option>
+<div class="border-2 border-black rounded-2xl w-[80%] p-4 flex flex-col justify-between h-32 mt-10"  data-aos="fade-up" data-aos-delay="400">
+        <select class="text-3xl bg-orange  font-bold" name="day" id="day" >
+            <option class="text-xl"  value="senin">Senin</option>
+            <option class="text-xl"  value="selasa">Selasa</option>
+            <option class="text-xl" value="rabu">Rabu</option>
         </select>
-    <button class="bg-black text-white p-2 w-full rounded-xl">Cari !</button>
+    <button onclick="redirectTo()" class="bg-black text-white p-2 w-full rounded-xl">Cari !</button>
 </div>
+
+<script is:inline>
+    function redirectTo(){
+        var value = document.getElementById("day").value;
+        window.location.href = `/day/${value}`
+    }
+</script>
