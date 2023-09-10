@@ -8,20 +8,23 @@ interface Props {
 const { hour, room, floor } = Astro.props;
 ---
 
-<div class="bg-orange border-2 border-black rounded-xl w-[80%] mt-10 p-4 epilogue " data-aos="fade-up" data-aos-delay="450">
-	<h2 class="text-3xl text-start ">
-		{room}
-		<!-- <span>&rarr;</span> -->
-	</h2>
-	<div class="flex justify-between bold mt-2">
-		<h4 class="text-lg ">
-			Lantai : {floor}
-		</h4>
-		<h4 class="text-xl">
-			Jam : {hour}
-		</h4>
-	</div>
+<div class="w-[80%] mt-10" data-aos="fade-up" data-aos-delay="450">
+	<div class="bg-orange border-2 border-black rounded-xl  p-4 epilogue block hover:scale-105
+	transition-all" >
+		<h2 class="text-3xl text-start ">
+			{room}
+			<!-- <span>&rarr;</span> -->
+		</h2>
+		<div class="flex justify-between bold mt-2">
+			<h4 class="text-lg ">
+				Lantai : {floor}
+			</h4>
+			<h4 class="text-xl">
+				Jam : {hour}
+			</h4>
+		</div>
 	
+	</div>
 </div>
 <!-- <style>
 	.link-card {
